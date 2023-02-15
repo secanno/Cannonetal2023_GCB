@@ -41,5 +41,6 @@ nb <- knn2nb(knn)
 nbw <- nb2listw(nb, style = "W")
 
 #test for spatial autocorrelation with residuals
-mtest <- moran.test(simres, nbw)
+res1 <- residuals(mod)
+mtest <- moran.test(res1, nbw)
 mtest #print results
