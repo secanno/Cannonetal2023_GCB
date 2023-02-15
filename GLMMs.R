@@ -1,3 +1,6 @@
+#install.packages('DHARMa')
+#install.packages("glmmTMB", repos="https://glmmTMB.github.io/glmmTMB/repos") #to install development version, needed to run zero-inflated beta regression
+
 library(glmmTMB)
 library(DHARMa)
 
@@ -17,6 +20,7 @@ plotResiduals(simres) #plot residuals only
 
 
 #moran's test for spatial autocorrelation
+#install.packages('spdep')
 library(spdep)
 
 #create data frame with lat and long values
