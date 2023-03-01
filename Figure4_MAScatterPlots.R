@@ -1,18 +1,19 @@
 
 library(ggplot2)
+library(scales)
 
 
-ggplot(data_long2, aes(x = Vals, y = percent)) + 
+ggplot(data, aes(x = Vals, y = percent)) + 
   geom_point(aes(color = Divisions, fill = Divisions, shape = Divisions), color = "black") + 
-  geom_smooth(method = 'glm', na.rm = TRUE, linetype = "dashed", color = "yellow", linewidth = 0.5) +
+  geom_smooth(method = 'glm', na.rm = TRUE, linetype = "dashed", color = "yellow", linewidth = 0.5) + #add trend line
   scale_shape_manual(guide = "legend", values = c("Brown" = 21, 
                                                   "Green" = 22,
-                                                  "Red" = 23)) +
-  scale_fill_manual(guide = "legend", values = c("Brown" = "burlywood4",
+                                                  "Red" = 23)) + #add shapes for each of the divisions
+  scale_fill_manual(guide = "legend", values = c("Brown" = "burlywood4", 
                                                  "Green" = "forestgreen", 
-                                                 "Red" = "tomato1"), 
+                                                 "Red" = "tomato1"), #colors for each division
                     aesthetics = "fill") +
-  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) + #format y axis labels as percents
   guides(fill = "none", shape = "none") +
   xlab("") + ylab("Percent of Total Cover") +
   theme_minimal() + 
