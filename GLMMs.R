@@ -3,7 +3,7 @@
 
 library(glmmTMB)
 library(DHARMa)
-
+library(ggeffects)
 
 #run model
 mod <- glmmTMB(formula = percent ~ NDVI + log(humanpop + 1) + marketgravity + cumul_humanimpact_score + nutrient_percent + 
@@ -16,8 +16,6 @@ simres <- simulateResiduals(mod)
 plot(simres) #both QQ plot and residuals
 plotQQunif(simres) #plot QQplot only
 plotResiduals(simres) #plot residuals only
-
-
 
 #moran's test for spatial autocorrelation
 #install.packages('spdep')
@@ -44,3 +42,7 @@ nbw <- nb2listw(nb, style = "W")
 res1 <- residuals(mod)
 mtest <- moran.test(res1, nbw)
 mtest #print results
+
+
+#calculate estimated marginal means https://strengejacke.github.io/ggeffects/
+model_parameters(mod2_ha) 
