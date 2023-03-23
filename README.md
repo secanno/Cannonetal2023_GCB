@@ -1,6 +1,6 @@
 # Cannonetal2023_Macroalgae
 
-R code for analyses included in Cannon et al. 2023 (doi: TBD)
+R code for analyses included in Cannon et al. 2023 (doi: 10.1111/GCB.16694)
 
 Included in this repository are the following R scripts for analysis:
 
